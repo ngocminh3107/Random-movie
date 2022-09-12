@@ -17,7 +17,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
 </head>
 
@@ -30,12 +30,12 @@
                 <div class="box">
                     <h1 class="text-title" id="title">aaaaaaa</h1>
                     <p class="category"></p>
-                    <p class="description" ></p>
+                    <p class="description"></p>
                     <button id="button_random" class="btn btn-outline-success btn_random">
-                        click to select
+                        Click to roll
                     </button>
                     <button id="button_play" class="btn btn-outline-success btn_play">
-                        enter to play
+                        Enter to play
                     </button>
                 </div>
             </div>
@@ -46,12 +46,13 @@
 
     </div>
 </body>
+
 <script>
     const button = document.getElementById('button_random'); // get the button element
     const text = document.getElementById('title'); // element ten phim
     const imageTitle = document.querySelector('.content_left'); // hinh
     const category = document.querySelector('.category'); //the loai phim
-    const description = document.querySelector('.description'); //mo ta phim ko co nen randiom
+    const description = document.querySelector('.description'); //mo ta phim ko co nen random text
     const video = document.querySelector('.video-player');
     const buttonPlay = document.querySelector('.btn_play');
     const backgroundImg = document.querySelector('.ahbbc');
@@ -83,7 +84,7 @@
             3); //random tu 0 den 3 de lay ngau nhien mot description do api ko co san
 
         //fetch data from json
-        const response = await fetch('../js/data.json');
+        const response = await fetch('./js/data.json');
         const data = await response.json();
 
         //working data from json
@@ -91,10 +92,10 @@
         category.innerHTML = data[ahbb].category;
         description.innerHTML = data[522].description[ahcc];
         imageTitle.innerHTML = '<img src="' + data[ahbb].imageUrl +
-            '" class="img-responsive img_title" style="width:250px; height:380px;" alt="">'        
+            '" class="img-responsive img_title" style="width:250px; height:380px;" alt="">'
         video.innerHTML = '<iframe width="100%" height="100%" class="video-player" src="' + data[ahbb].episode[0]
-            .url+'?autoplay=1&mute=0"></iframe>'
-            backgroundImg.style.backgroundImage = 'url("'+data[ahbb].imageUrl+'")';
+            .url + '?autoplay=1&mute=0"></iframe>'
+        backgroundImg.style.backgroundImage = 'url("' + data[ahbb].imageUrl + '")';
     }
 
     buttonPlay.onclick = function () {
@@ -102,6 +103,6 @@
     }
 </script>
 
-<script src="../js/index.js"></script>
+<script src="./js/index.js"></script>
 
 </html>
